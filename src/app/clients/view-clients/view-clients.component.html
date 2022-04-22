@@ -1,0 +1,69 @@
+<mat-card class="m-2rem" style="text-align: center; background-color: #0422D8; color: white;">
+  <h3>CLIENTES</h3>
+</mat-card>
+
+<div class="table-clients">
+  <table mat-table matSort (matSortChange)="announceSortChange($event)" [dataSource]="dataSource"
+    class="mat-elevation-z8 w-100" style="border-top: 3px solid #0422D8;border-radius: 10px;">
+
+    <ng-container matColumnDef="idx">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Filtrados"> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.idx}} </td>
+    </ng-container>
+
+    <!-- Documento -->
+    <ng-container matColumnDef="documento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Filtrados"> Documento </th>
+      <td mat-cell *matCellDef="let element"> {{element.documento}} </td>
+    </ng-container>
+
+    <!-- cliente -->
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Filtrados"> Cliente </th>
+      <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+    </ng-container>
+
+    <!-- comprobante Column -->
+    <ng-container matColumnDef="comprobante">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Filtrados"> Comprobante </th>
+      <td mat-cell *matCellDef="let element"> {{element.comprobante}} </td>
+    </ng-container>
+
+    <!-- estado Column -->
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Filtrados"> Estado </th>
+      <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+    </ng-container>
+
+    <!-- fecha Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Filtrados"> Fecha de pago </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    </ng-container>
+
+    <!-- situacion Column -->
+    <ng-container matColumnDef="situacion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Filtrados"> Situación </th>
+      <td mat-cell *matCellDef="let element"> {{element.situacion}} </td>
+    </ng-container>
+
+    <!-- acciones Column -->
+    <ng-container matColumnDef="opciones">
+      <th mat-header-cell *matHeaderCellDef class=""> Acciones </th>
+      <td mat-cell *matCellDef="let element" class="">
+        <button mat-mini-fab color="accent" aria-label="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <span>&nbsp;</span>
+        <button mat-mini-fab color="warn" aria-label="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<mat-paginator [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons style="margin: 0 2rem 0 2rem ;">
+</mat-paginator>

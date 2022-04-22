@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'siges';
+  showOptionsClients: boolean = false;
+  showLogo: boolean = true;
+
+  showClients() {
+    this.showOptionsClients = !this.showOptionsClients;
+  }
+  disableLogo() {
+    this.showLogo = !this.showLogo;
+  }
 }

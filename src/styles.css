@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.logo-side {
+  padding: 1rem;
+}
+
+.logo-sides {
+  padding: 1rem;
+}
+
+@media screen and (max-width: 680px) {
+  .logo-sides {
+    display: none;
+  }
+}
+
+#drawer {
+  background-color: #162343;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.box-button {
+  margin: 0.8rem;
+  transition: all 0.3s ease-in;
+}
+
+.box-button-clients {
+  margin: 0.1rem;
+}
+
+.box-options-button {
+  margin: 0 1.2rem 0.4rem 1.2rem;
+}
+
+.table-clients {
+  margin: 0 2rem 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.m-2rem {
+  margin: 2rem;
+}
+
+.example-button-container {
+  text-align: center;
+}
