@@ -14,6 +14,11 @@ body {
   flex: 1 1 auto;
 }
 
+.color-electric {
+  background-color: #0422D8;
+  color: white;
+}
+
 .logo-side {
   padding: 1rem;
 }
@@ -25,6 +30,13 @@ body {
 @media screen and (max-width: 680px) {
   .logo-sides {
     display: none;
+  }
+
+  .table-clients {
+    margin: 0 2rem 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
   }
 }
 
@@ -52,8 +64,8 @@ body {
 .table-clients {
   margin: 0 2rem 0 2rem;
   display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
+
+
 }
 
 .m-2rem {
@@ -61,5 +73,5 @@ body {
 }
 
 .example-button-container {
-  text-align: center;
+  text-align: center !important;
 }
