@@ -15,7 +15,7 @@ body {
 }
 
 .color-electric {
-  background-color: #0422D8;
+  background-color: #0422d8;
   color: white;
 }
 
@@ -64,8 +64,6 @@ body {
 .table-clients {
   margin: 0 2rem 0 2rem;
   display: flex;
-
-
 }
 
 .m-2rem {
@@ -74,4 +72,17 @@ body {
 
 .example-button-container {
   text-align: center !important;
+}
+
+.tabla-input {
+  margin-right: 30px;
+  margin-left: 10px;
+  height: 40px;
+  font-size: 1.5rem;
+  width: 60%;
+}
+
+.top-line-blue {
+  border-top: 3px solid #0422d8;
+  border-radius: 10px;
 }

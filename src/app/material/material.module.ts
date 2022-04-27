@@ -11,6 +11,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -29,7 +31,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }
