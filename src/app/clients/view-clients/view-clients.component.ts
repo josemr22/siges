@@ -30,7 +30,7 @@ const CLIENTS_LIST: Client[] = [
   { idx: 8, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
   { idx: 9, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '23/04/2022', situacion: 'Activo', opciones: '' },
   { idx: 10, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
-  { idx: 11, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
+  { idx: 11, documento: 76745964, cliente: 'Jose Luis', comprobante: 'F9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
   { idx: 12, documento: 76745964, cliente: 'Jose Luis', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' }
 ];
 
@@ -42,38 +42,36 @@ const CLIENTS_LIST: Client[] = [
     `
   ]
 })
-export class ViewClientsComponent implements AfterViewInit, OnInit {
+export class ViewClientsComponent implements OnInit {
 
-  displayedColumns: string[] = ['idx', 'documento', 'cliente', 'comprobante', 'estado', 'fecha', 'situacion', 'opciones'];
-  dataSource = new MatTableDataSource<Client>([]);
+  _clients: Client[] = [];
 
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+  columns: any[] = [
+    { field: 'idx', header: '#', },
+    { field: 'documento', header: 'Documento', },
+    { field: 'cliente', header: 'Cliente', },
+    { field: 'comprobante', header: 'Comprobante', },
+    { field: 'estado', header: 'Estado', },
+    { field: 'fecha', header: 'Fecha', },
+    { field: 'situacion', header: 'Situación', },
+  ];
 
   constructor(
-    private _liveAnnouncer: LiveAnnouncer,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.dataSource.data = CLIENTS_LIST;
+    this._clients = CLIENTS_LIST;
   }
 
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
+  get clients() {
+    return this._clients;
   }
 
   createClient() {
-    const dialogRef = this.dialog.open(ClientFormComponent);
+    const dialogRef = this.dialog.open(ClientFormComponent, {
+      width: '900px',
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -81,7 +79,7 @@ export class ViewClientsComponent implements AfterViewInit, OnInit {
   }
 
   export() {
-    let data: any[] = this.dataSource.data.map(({
+    let data: any[] = this.clients.map(({
       documento, cliente, comprobante, estado, fecha, situacion
     }) => {
       return ({

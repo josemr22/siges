@@ -13,6 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -33,7 +35,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSidenavModule,
     MatSortModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    TableModule,
+    InputTextModule
   ]
 })
 export class MaterialModule { }

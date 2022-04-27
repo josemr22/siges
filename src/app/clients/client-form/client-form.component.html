@@ -3,19 +3,39 @@
     <mat-card-title>Datos Validación</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-grid-list>
-      <mat-grid-tile [colspan]="4">
-        <mat-form-field appearance="fill">
-          <mat-label>Enter your email</mat-label>
-          <input matInput placeholder="pat@example.com" required>
+    <mat-grid-list cols="2" rowHeight="4:1">
+      <mat-grid-tile>
+        <mat-form-field appearance="fill" class="w-100 mx-2">
+          <mat-label>Tipo de Documento</mat-label>
+          <input matInput required>
         </mat-form-field>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="4">
-        <mat-form-field appearance="fill">
-          <mat-label>Enter your email</mat-label>
-          <input matInput placeholder="pat@example.com" required>
+      <mat-grid-tile>
+        <mat-form-field appearance="fill" class="w-100 mx-2">
+          <mat-label>Número de Documento</mat-label>
+          <input matInput required>
         </mat-form-field>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-card-content>
+</mat-card>
+
+<mat-card class="m-2rem top-line-blue">
+  <mat-card-header>
+    <mat-card-title>Datos Validación</mat-card-title>
+  </mat-card-header>
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" class="w-100 mx-2">
+        <mat-label>Tipo de Documento *</mat-label>
+        <input matInput required>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" class="w-100 mx-2">
+        <mat-label>Número de Documento *</mat-label>
+        <input matInput required>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-card>

@@ -86,3 +86,16 @@ body {
   border-top: 3px solid #0422d8;
   border-radius: 10px;
 }
+
+.mx-2 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.flex {
+  display: flex;
+}
+
+.jc-e {
+  justify-content: end;
+}
