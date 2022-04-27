@@ -3,11 +3,17 @@
 html,
 body {
   height: 100%;
+  background-color: #c1cbe2;
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #c1cbe2;
+}
+
+.background-drawer {
+  background-color: #c1cbe2;
 }
 
 .example-spacer {
@@ -67,7 +73,7 @@ body {
 }
 
 .m-2rem {
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .example-button-container {

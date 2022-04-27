@@ -1,52 +1,59 @@
-<mat-card class="m-2rem" style="text-align: center; background-color: #0422D8; color: white;">
+<mat-card class="m-2rem mat-elevation-z8" style="text-align: center; background-color: #0422D8; color: white;">
   <h3>CLIENTES</h3>
 </mat-card>
 
-<mat-card class="m-2rem">
-  <div style="display: flex;">
-    <button (click)="export()" mat-flat-button class="color-electric" aria-label="Eliminar">
-      <mat-icon><span class="material-icons">article</span></mat-icon> &nbsp; Excel
-    </button>
-    <span class="example-spacer"></span>
-    <button (click)="createClient()" mat-flat-button class="color-electric" aria-label="Eliminar">
-      <mat-icon><span class="material-icons">
-          group_add
-        </span></mat-icon>&nbsp; Agregar Cliente
-    </button>
-  </div>
-</mat-card>
+<!-- <mat-card class="m-2rem mat-elevation-z8">
+  
 
-<div style="justify-content: space-around;" class="table-clients">
-  <p-table class="table-clients" #dt1 [value]="clients" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-    [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-gridlines" [paginator]="true"
+</mat-card> -->
+
+<mat-card class="m-2rem mat-elevation-z8">
+  <p-table #dt1 [value]="clients" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers" [paginator]="true"
     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
     [globalFilterFields]="['idx','documento','cliente','comprobante','estado','fecha','situacion']"
     responsiveLayout="scroll" [autoLayout]="true">
     <ng-template pTemplate="caption">
-      <div class="flex jc-e">
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Búsqueda:</mat-label>
-          <input (input)="dt1.filterGlobal($event.target!['value'], 'contains')" type="text" matInput>
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
+      <div style="display: flex;">
+        <button (click)="export()" mat-flat-button class="color-electric mat-elevation-z8" aria-label="Eliminar">
+          <mat-icon><span class="material-icons">article</span></mat-icon> &nbsp; Excel
+        </button>
+        <span class="example-spacer"></span>
+        <button (click)="createClient()" mat-flat-button class="color-electric mat-elevation-z8" aria-label="Eliminar">
+          <mat-icon><span class="material-icons">
+              group_add
+            </span></mat-icon>&nbsp; Agregar Cliente
+        </button>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="end end" style="margin-top: 1rem;">
+        <div fxFlex="100">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Búsqueda:</mat-label>
+            <input (input)="dt1.filterGlobal($event.target!['value'], 'contains')" type="text" matInput>
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
       </div>
     </ng-template>
-
     <ng-template pTemplate="header">
       <tr>
         <th *ngFor="let col of columns">
-          <div>
-            {{col.header}}
-            <p-columnFilter [field]="col.field" matchMode="contains" [showMenu]="false">
-
-              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-                <input type="text" pInputText [ngModel]="value" (keyup)="filter($event.target!['value'])" />
-              </ng-template>
-
-            </p-columnFilter>
-          </div>
+          {{col.header}}
         </th>
         <th>Opciones</th>
+      </tr>
+      <tr>
+        <th *ngFor="let col of columns">
+          <p-columnFilter [field]="col.field" [showMenu]="false">
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <div fxLayout="row" fxFlexAlign="space-around">
+                <input type="text" pInputText [ngModel]="value" (keyup)="filter($event.target!['value'])"
+                  style="height: 20px; width: 80px;" />
+              </div>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+        <th></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-client>
@@ -70,4 +77,4 @@
       </tr>
     </ng-template>
   </p-table>
-</div>
+</mat-card>

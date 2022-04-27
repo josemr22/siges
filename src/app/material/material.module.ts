@@ -15,13 +15,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 
 @NgModule({
   exports: [
+    FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
