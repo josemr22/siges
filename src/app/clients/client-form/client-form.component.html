@@ -1,277 +1,279 @@
 <h1 mat-dialog-title>Registro de Cliente</h1>
-<mat-card class="top-line-blue mat-elevation-z8">
-  <mat-card-header style="margin: 0px;">
-    <mat-card-title style="font-size: 17px;">
-      Datos Validación
-    </mat-card-title>
-  </mat-card-header>
-  <mat-divider></mat-divider>
-  <mat-card-content>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="50" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Tipo Documento</mat-label>
-          <mat-select required>
-            <mat-option *ngFor="let doc of documentos" [value]="doc.value">
-              {{doc.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+<mat-dialog-content>
+  <mat-card class="top-line-blue mat-elevation-z8">
+    <mat-card-header style="margin: 0px;">
+      <mat-card-title style="font-size: 17px;">
+        Datos Validación
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="50" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Tipo Documento</mat-label>
+            <mat-select required>
+              <mat-option *ngFor="let doc of documentos" [value]="doc.value">
+                {{doc.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nº de Documento</mat-label>
+            <input matInput required>
+          </mat-form-field>
+        </div>
       </div>
-      <div fxFlex="50" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Nº de Documento</mat-label>
-          <input matInput required>
-        </mat-form-field>
-      </div>
-    </div>
-  </mat-card-content>
-</mat-card>
+    </mat-card-content>
+  </mat-card>
 
-<mat-card class="mt-2 top-line-blue mat-elevation-z8" style="display: none;">
-  <mat-card-header>
-    <mat-card-title style="font-size: 17px;">
-      Datos Generales
-    </mat-card-title>
-  </mat-card-header>
-  <mat-divider></mat-divider>
-  <mat-card-content>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Nombres</mat-label>
-          <input matInput required>
-        </mat-form-field>
+  <mat-card class="mt-2 top-line-blue mat-elevation-z8">
+    <mat-card-header>
+      <mat-card-title style="font-size: 17px;">
+        Datos Generales
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nombres</mat-label>
+            <input matInput required>
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Apellido Paterno</mat-label>
+            <input matInput required>
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Apellido Materno</mat-label>
+            <input matInput required>
+          </mat-form-field>
+        </div>
       </div>
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Apellido Paterno</mat-label>
-          <input matInput required>
-        </mat-form-field>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="100" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Razón Social</mat-label>
+            <input matInput required>
+          </mat-form-field>
+        </div>
       </div>
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Apellido Materno</mat-label>
-          <input matInput required>
-        </mat-form-field>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Correo</mat-label>
+            <input matInput required type="email">
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Celular</mat-label>
+            <input matInput required type="number">
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Teléfono</mat-label>
+            <input matInput type="number">
+          </mat-form-field>
+        </div>
       </div>
-    </div>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="100" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Razón Social</mat-label>
-          <input matInput required>
-        </mat-form-field>
-      </div>
-    </div>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Correo</mat-label>
-          <input matInput required type="email">
-        </mat-form-field>
-      </div>
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Celular</mat-label>
-          <input matInput required type="number">
-        </mat-form-field>
-      </div>
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Teléfono</mat-label>
-          <input matInput type="number">
-        </mat-form-field>
-      </div>
-    </div>
-  </mat-card-content>
+    </mat-card-content>
 
-</mat-card>
+  </mat-card>
 
-<mat-card class="mt-2 top-line-blue mat-elevation-z8" style="display: none;">
-  <mat-card-header>
-    <mat-card-title style="font-size: 17px;">
-      Preventa
-    </mat-card-title>
-  </mat-card-header>
-  <mat-divider></mat-divider>
-  <mat-card-content>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Comprobante</mat-label>
-          <mat-select required>
-            <mat-option *ngFor="let comp of comprobantes" [value]="comp.value">
-              {{comp.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+  <mat-card class="mt-2 top-line-blue mat-elevation-z8">
+    <mat-card-header>
+      <mat-card-title style="font-size: 17px;">
+        Preventa
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Comprobante</mat-label>
+            <mat-select required>
+              <mat-option *ngFor="let comp of comprobantes" [value]="comp.value">
+                {{comp.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Modalidad</mat-label>
+            <mat-select required>
+              <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
+                {{mod.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column" style="padding: 0.6rem;">
+          <mat-radio-group aria-label="Forma de pago">
+            <mat-radio-button value="1">Pago Adelantado</mat-radio-button>
+            <mat-radio-button value="2">Servicio Vencido</mat-radio-button>
+          </mat-radio-group>
+        </div>
       </div>
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Modalidad</mat-label>
-          <mat-select required>
-            <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
-              {{mod.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="50" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Fecha de inicio de servicio</mat-label>
+            <input matInput required type="date">
+          </mat-form-field>
+        </div>
+        <div fxFlex="50" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Emisión preventa</mat-label>
+            <input matInput required type="number">
+          </mat-form-field>
+        </div>
       </div>
-      <div fxFlex="33" fxLayout="column" style="padding: 0.6rem;">
-        <mat-radio-group aria-label="Forma de pago">
-          <mat-radio-button value="1">Pago Adelantado</mat-radio-button>
-          <mat-radio-button value="2">Servicio Vencido</mat-radio-button>
-        </mat-radio-group>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="20" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Departamento</mat-label>
+            <mat-select required>
+              <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
+                {{mod.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="20" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Provincia</mat-label>
+            <mat-select required>
+              <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
+                {{mod.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="20" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Distrito</mat-label>
+            <mat-select required>
+              <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
+                {{mod.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="40" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Dirección</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
       </div>
-    </div>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="50" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Fecha de inicio de servicio</mat-label>
-          <input matInput required type="date">
-        </mat-form-field>
-      </div>
-      <div fxFlex="50" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Emisión preventa</mat-label>
-          <input matInput required type="number">
-        </mat-form-field>
-      </div>
-    </div>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="20" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Departamento</mat-label>
-          <mat-select required>
-            <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
-              {{mod.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div fxFlex="20" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Provincia</mat-label>
-          <mat-select required>
-            <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
-              {{mod.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div fxFlex="20" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Distrito</mat-label>
-          <mat-select required>
-            <mat-option *ngFor="let mod of modalidad" [value]="mod.value">
-              {{mod.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div fxFlex="40" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Dirección</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-    </div>
-  </mat-card-content>
+    </mat-card-content>
 
-</mat-card>
+  </mat-card>
 
-<mat-card class="mt-2 top-line-blue mat-elevation-z8" style="display: none;">
-  <mat-card-header>
-    <mat-card-title style="font-size: 17px;">
-      Datos del Plan
-    </mat-card-title>
-  </mat-card-header>
-  <mat-divider></mat-divider>
-  <mat-card-content>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Nº Usuarios</mat-label>
-          <input matInput required type="number">
-        </mat-form-field>
+  <mat-card class="mt-2 top-line-blue mat-elevation-z8">
+    <mat-card-header>
+      <mat-card-title style="font-size: 17px;">
+        Datos del Plan
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nº Usuarios</mat-label>
+            <input matInput required type="number">
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nº Comprobantes</mat-label>
+            <input matInput required type="number">
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nº Locales</mat-label>
+            <input matInput required type="number">
+          </mat-form-field>
+        </div>
       </div>
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Nº Comprobantes</mat-label>
-          <input matInput required type="number">
-        </mat-form-field>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="50" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Nombre del plan</mat-label>
+            <input matInput required type="text" disabled>
+          </mat-form-field>
+        </div>
+        <div fxFlex="30" fxLayout="column">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Monto</mat-label>
+            <input matInput required type="number" disabled>
+          </mat-form-field>
+        </div>
+        <div fxFlex="20" fxLayout="column" fxFlexAlign="center">
+          <button mat-stroked-button class="mat-elevation-z8">Editar monto</button>
+        </div>
       </div>
-      <div fxFlex="33" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Nº Locales</mat-label>
-          <input matInput required type="number">
-        </mat-form-field>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+        <div fxFlex="100" fxLayout="column" fxFlexAlign="center" fxLayoutAlign="center center">
+          <button mat-stroked-button class="color-electric w-100 mat-elevation-z8">Agregar nuevo precio</button>
+        </div>
       </div>
-    </div>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="50" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Nombre del plan</mat-label>
-          <input matInput required type="text" disabled>
-        </mat-form-field>
-      </div>
-      <div fxFlex="30" fxLayout="column">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Monto</mat-label>
-          <input matInput required type="number" disabled>
-        </mat-form-field>
-      </div>
-      <div fxFlex="20" fxLayout="column" fxFlexAlign="center">
-        <button mat-stroked-button class="mat-elevation-z8">Editar monto</button>
-      </div>
-    </div>
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-      <div fxFlex="100" fxLayout="column" fxFlexAlign="center" fxLayoutAlign="center center">
-        <button mat-stroked-button class="color-electric w-100 mat-elevation-z8">Agregar nuevo precio</button>
-      </div>
-    </div>
-    <div fxLayout="row">
-      <mat-table [dataSource]="dataSource" class="mt-1 mat-elevation-z8" fxFlex="100">
-        <!-- Position Column -->
-        <ng-container matColumnDef="plan">
-          <mat-header-cell *matHeaderCellDef> Plan </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.plan}} </mat-cell>
-        </ng-container>
+      <div fxLayout="row">
+        <mat-table [dataSource]="dataSource" class="mt-1 mat-elevation-z8" fxFlex="100">
+          <!-- Position Column -->
+          <ng-container matColumnDef="plan">
+            <mat-header-cell *matHeaderCellDef> Plan </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.plan}} </mat-cell>
+          </ng-container>
 
-        <!-- monto Column -->
-        <ng-container matColumnDef="monto">
-          <mat-header-cell *matHeaderCellDef> Monto </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.monto}} </mat-cell>
-        </ng-container>
+          <!-- monto Column -->
+          <ng-container matColumnDef="monto">
+            <mat-header-cell *matHeaderCellDef> Monto </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.monto}} </mat-cell>
+          </ng-container>
 
-        <!-- fechaV Column -->
-        <ng-container matColumnDef="fechaV">
-          <mat-header-cell *matHeaderCellDef> Fecha Venc. </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.fechaV}} </mat-cell>
-        </ng-container>
+          <!-- fechaV Column -->
+          <ng-container matColumnDef="fechaV">
+            <mat-header-cell *matHeaderCellDef> Fecha Venc. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fechaV}} </mat-cell>
+          </ng-container>
 
-        <!-- fechaC Column -->
-        <ng-container matColumnDef="fechaC">
-          <mat-header-cell *matHeaderCellDef> Fecha Caduc. </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.fechaC}} </mat-cell>
-        </ng-container>
+          <!-- fechaC Column -->
+          <ng-container matColumnDef="fechaC">
+            <mat-header-cell *matHeaderCellDef> Fecha Caduc. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fechaC}} </mat-cell>
+          </ng-container>
 
-        <!-- options Column -->
-        <ng-container matColumnDef="opcion">
-          <mat-header-cell *matHeaderCellDef fxFlexAlign="center" fxLayoutAlign="center center"> Opciones
-          </mat-header-cell>
-          <mat-cell *matCellDef="let element" fxFlexAlign="center" fxLayoutAlign="center center">
-            <button mat-stroked-button class="">Caducar</button>
-          </mat-cell>
-        </ng-container>
+          <!-- options Column -->
+          <ng-container matColumnDef="opcion">
+            <mat-header-cell *matHeaderCellDef fxFlexAlign="center" fxLayoutAlign="center center"> Opciones
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" fxFlexAlign="center" fxLayoutAlign="center center">
+              <button mat-stroked-button class="">Caducar</button>
+            </mat-cell>
+          </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
-    </div>
-  </mat-card-content>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-card-content>
 
-</mat-card>
+  </mat-card>
+</mat-dialog-content>
 
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center" class="mt-1">
   <button mat-raised-button mat-dialog-close class="color-electric">Guardar</button>
