@@ -1,21 +1,23 @@
-import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { InputTextModule } from 'primeng/inputtext';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgModule } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { InputTextModule } from 'primeng/inputtext';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -23,22 +25,24 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   exports: [
     FlexLayoutModule,
+    InputTextModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
     MatDividerModule,
+    MatFormFieldModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule,
     MatMenuModule,
     MatPaginatorModule,
-    MatTableModule,
-    MatToolbarModule,
+    MatRadioModule,
+    MatSelectModule,
     MatSidenavModule,
     MatSortModule,
-    MatDialogModule,
-    MatGridListModule,
+    MatTableModule,
+    MatToolbarModule,
     TableModule,
-    InputTextModule
   ]
 })
 export class MaterialModule { }

@@ -70,7 +70,7 @@ export class ViewClientsComponent implements OnInit {
 
   createClient() {
     const dialogRef = this.dialog.open(ClientFormComponent, {
-      width: '900px',
+      width: '800px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
