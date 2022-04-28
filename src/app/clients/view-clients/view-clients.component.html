@@ -62,15 +62,18 @@
           {{client[col.field]}}
         </td>
         <td class="example-button-container" fxLayout="row">
-          <button mat-mini-fab color="primary" aria-label="Eliminar" style="border-radius: 20%">
+          <button (click)="showClient(client)" mat-mini-fab color="primary" aria-label="Eliminar"
+            style="border-radius: 20%">
             <mat-icon>search</mat-icon>
           </button>
           <span>&nbsp;</span>
-          <button mat-mini-fab color="accent" aria-label="Editar" style="border-radius: 20%">
+          <button mat-mini-fab (click)="editClient(client)" color="accent" aria-label="Editar"
+            style="border-radius: 20%">
             <mat-icon>chat</mat-icon>
           </button>
           <span>&nbsp;</span>
-          <button mat-mini-fab color="warn" aria-label="Eliminar" style="border-radius: 20%">
+          <button mat-mini-fab (click)="deleteClient(client.idx)" color="warn" aria-label="Eliminar"
+            style="border-radius: 20%">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

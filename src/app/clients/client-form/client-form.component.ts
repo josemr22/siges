@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
+import { Client } from '../view-clients/view-clients.component';
 interface Documento {
   value: string;
   viewValue: string;
 }
-
 export interface Cotizacion {
   plan: string;
   monto: number;
@@ -33,6 +35,15 @@ export class ClientFormComponent implements OnInit {
     { value: 'dni', viewValue: 'DNI' },
     { value: 'ruc', viewValue: 'RUC' },
   ];
+
+  form: any = {
+    doc: 'dni',
+    numDoc: null,
+    name: null,
+    fechaInicio: null,
+    comprobante: null,
+  }
+
   comprobantes: Documento[] = [
     { value: 'nv', viewValue: 'Nota de venta' },
     { value: 'b', viewValue: 'Boleta' },
@@ -45,9 +56,16 @@ export class ClientFormComponent implements OnInit {
     { value: 'q', viewValue: 'Quincenal' },
   ];
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public client: Client | null) { }
 
   ngOnInit(): void {
+    if (this.client) {
+      this.form.name = this.client.cliente;
+      this.form.numDoc = this.client.documento;
+    }
   }
 
+  save() {
+    Swal.fire('Bien Hecho', `${this.client ? 'Actualizado' : 'Guardado'} Correctamente`, 'success');
+  }
 }

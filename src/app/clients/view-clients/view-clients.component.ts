@@ -6,6 +6,8 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { exportTable } from 'src/app/helpers/export-table';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientFormComponent } from '../client-form/client-form.component';
+import Swal from 'sweetalert2';
+import { ClientDetailComponent } from '../client-detail/client-detail.component';
 
 export interface Client {
   idx: number;
@@ -21,8 +23,8 @@ export interface Client {
 
 const CLIENTS_LIST: Client[] = [
   { idx: 1, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
-  { idx: 2, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
-  { idx: 3, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
+  { idx: 2, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Cancelado', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
+  { idx: 3, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Suspendido', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
   { idx: 4, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
   { idx: 5, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
   { idx: 6, documento: 76745964, cliente: 'Renatto Farid', comprobante: 'H9876123', estado: 'Activo', fecha: '22/04/2022', situacion: 'Activo', opciones: '' },
@@ -70,12 +72,39 @@ export class ViewClientsComponent implements OnInit {
 
   createClient() {
     const dialogRef = this.dialog.open(ClientFormComponent, {
-      width: '800px'
+      width: '800px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      console.log(`Create result: ${result}`);
     });
+  }
+
+  showClient(client: Client) {
+    const dialogRef = this.dialog.open(ClientDetailComponent, {
+      width: '800px',
+      data: { ...client }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Show result: ${result}`);
+    });
+  }
+
+  editClient(client: Client) {
+    const dialogRef = this.dialog.open(ClientFormComponent, {
+      width: '800px',
+      data: { ...client }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Edit result: ${result}`);
+    });
+  }
+
+  deleteClient(id: number) {
+    this._clients = this._clients.filter(c => c.idx != id);
+    Swal.fire('Bien Hecho', 'Cliente Eliminado', 'success');
   }
 
   export() {
