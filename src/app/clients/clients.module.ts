@@ -6,12 +6,14 @@ import { ViewClientsComponent } from './view-clients/view-clients.component';
 import { MaterialModule } from '../material/material.module';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClientDetailComponent } from './client-detail/client-detail.component';
 
 
 @NgModule({
   declarations: [
     ViewClientsComponent,
-    ClientFormComponent
+    ClientFormComponent,
+    ClientDetailComponent
   ],
   imports: [
     CommonModule,

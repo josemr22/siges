@@ -88,6 +88,10 @@ body {
   margin-top: 2rem;
 }
 
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
 .example-button-container {
   text-align: center !important;
 }

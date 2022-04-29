@@ -1,4 +1,5 @@
-<h1 mat-dialog-title>Registro de Cliente</h1>
+<h1 mat-dialog-title>{{ !client ? 'Registro' : 'Edición' }} de Cliente</h1>
+
 <mat-dialog-content>
   <mat-card class="top-line-blue mat-elevation-z8">
     <mat-card-header style="margin: 0px;">
@@ -10,9 +11,9 @@
     <mat-card-content>
       <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
         <div fxFlex="50" fxLayout="column">
-          <mat-form-field appearance="fill" class="w-100">
+          <mat-form-field style="margin-top: 20px;" appearance="fill" class="w-100">
             <mat-label>Tipo Documento</mat-label>
-            <mat-select required>
+            <mat-select [(ngModel)]="form.doc" required>
               <mat-option *ngFor="let doc of documentos" [value]="doc.value">
                 {{doc.viewValue}}
               </mat-option>
@@ -20,9 +21,9 @@
           </mat-form-field>
         </div>
         <div fxFlex="50" fxLayout="column">
-          <mat-form-field appearance="fill" class="w-100">
+          <mat-form-field style="margin-top: 20px;" appearance="fill" class="w-100">
             <mat-label>Nº de Documento</mat-label>
-            <input matInput required>
+            <input [(ngModel)]="form.numDoc" matInput required>
           </mat-form-field>
         </div>
       </div>
@@ -37,34 +38,38 @@
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content>
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-        <div fxFlex="33" fxLayout="column">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Nombres</mat-label>
-            <input matInput required>
-          </mat-form-field>
+      <ng-container *ngIf="form.doc === 'dni'">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Nombres</mat-label>
+              <input [(ngModel)]="form.name" matInput required>
+            </mat-form-field>
+          </div>
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Apellido Paterno</mat-label>
+              <input matInput required>
+            </mat-form-field>
+          </div>
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Apellido Materno</mat-label>
+              <input matInput required>
+            </mat-form-field>
+          </div>
         </div>
-        <div fxFlex="33" fxLayout="column">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Apellido Paterno</mat-label>
-            <input matInput required>
-          </mat-form-field>
+      </ng-container>
+      <ng-container *ngIf="form.doc === 'ruc'">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+          <div fxFlex="100" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Razón Social</mat-label>
+              <input matInput required>
+            </mat-form-field>
+          </div>
         </div>
-        <div fxFlex="33" fxLayout="column">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Apellido Materno</mat-label>
-            <input matInput required>
-          </mat-form-field>
-        </div>
-      </div>
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
-        <div fxFlex="100" fxLayout="column">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Razón Social</mat-label>
-            <input matInput required>
-          </mat-form-field>
-        </div>
-      </div>
+      </ng-container>
       <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
         <div fxFlex="33" fxLayout="column">
           <mat-form-field appearance="fill" class="w-100">
@@ -101,7 +106,7 @@
         <div fxFlex="33" fxLayout="column">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Comprobante</mat-label>
-            <mat-select required>
+            <mat-select [(ngModel)]="form.comprobante" required>
               <mat-option *ngFor="let comp of comprobantes" [value]="comp.value">
                 {{comp.viewValue}}
               </mat-option>
@@ -129,7 +134,7 @@
         <div fxFlex="50" fxLayout="column">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Fecha de inicio de servicio</mat-label>
-            <input matInput required type="date">
+            <input [(ngModel)]="form.fechaInicio" matInput required type="date">
           </mat-form-field>
         </div>
         <div fxFlex="50" fxLayout="column">
@@ -181,7 +186,7 @@
 
   </mat-card>
 
-  <mat-card class="mt-2 top-line-blue mat-elevation-z8">
+  <mat-card class="mt-2 mb-2 top-line-blue mat-elevation-z8">
     <mat-card-header>
       <mat-card-title style="font-size: 17px;">
         Datos del Plan
@@ -219,11 +224,12 @@
         <div fxFlex="30" fxLayout="column">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Monto</mat-label>
-            <input matInput required type="number" disabled>
+            <input matInput required type="number" [disabled]="isEditableMont">
           </mat-form-field>
         </div>
         <div fxFlex="20" fxLayout="column" fxFlexAlign="center">
-          <button mat-stroked-button class="mat-elevation-z8">Editar monto</button>
+          <button mat-stroked-button class="mat-elevation-z8" (click)="isEditableMont=!isEditableMont">Editar
+            monto</button>
         </div>
       </div>
       <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
@@ -276,6 +282,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center" class="mt-1">
-  <button mat-raised-button mat-dialog-close class="color-electric">Guardar</button>
+  <button mat-raised-button mat-dialog-close (click)="save()"
+    class="color-electric">{{!client ? 'Guardar' : 'Actualizar'}}</button>
   <button mat-raised-button [mat-dialog-close]="true" color="warn">Cerrar</button>
 </mat-dialog-actions>

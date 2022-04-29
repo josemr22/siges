@@ -1,0 +1,239 @@
+<div class="header">
+  <div class="flex" style="align-items: center;">
+    <h1>Detalle de Cliente</h1>
+    <button class="btn mat-elevation-z8" [class]="(client.estado | lowercase) +'-color'">
+      {{client.estado | uppercase}}
+    </button>
+  </div>
+  <div>
+    <button *ngFor="let btn of buttons[client.estado]" class="btn btn-state mat-elevation-z8"
+      [class]="(btn.color | lowercase) +'-color'" (click)="changeState(btn.label)">
+      {{btn.label | uppercase}}
+    </button>
+  </div>
+</div>
+
+<mat-dialog-content>
+  <!-- <mat-card class="mb-2 top-line-blue mat-elevation-z8">
+    <mat-card-content style="font-size: 2rem;">
+      <div>
+        <p>ID: {{client.idx}}</p>
+        <p>Documento: {{client.documento}}</p>
+        <p>Nombre: {{client.cliente}}</p>
+        <p>Comprobante: {{client.comprobante}}</p>
+        <p>Estado: {{client.estado}}</p>
+        <p>Fecha: {{client.fecha}}</p>
+        <p>Situacion: {{client.situacion}}</p>
+      </div>
+    </mat-card-content>
+  </mat-card> -->
+  <div class="animate__animated animate__fast animate__backInLeft" *ngIf="!isContratoVisible">
+    <mat-card class="top-line-blue mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title style="font-size: 17px;">
+          Datos Generales
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <ng-container *ngIf="form.doc === 'dni'">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+            <div fxFlex="33" fxLayout="column">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Nombres</mat-label>
+                <input matInput disabled value="Renatto Farid">
+              </mat-form-field>
+            </div>
+            <div fxFlex="33" fxLayout="column">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Apellido Paterno</mat-label>
+                <input matInput disabled value="Perleche">
+              </mat-form-field>
+            </div>
+            <div fxFlex="33" fxLayout="column">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Apellido Materno</mat-label>
+                <input matInput disabled value="Alvitez">
+              </mat-form-field>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="form.doc === 'ruc'">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+            <div fxFlex="100" fxLayout="column">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Razón Social</mat-label>
+                <input matInput disabled value="Renatto Farid Perleche Alvitez">
+              </mat-form-field>
+            </div>
+          </div>
+        </ng-container>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Correo</mat-label>
+              <input matInput disabled value="renattofaridper@gmail.com" type="email">
+            </mat-form-field>
+          </div>
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Celular</mat-label>
+              <input matInput disabled value="934445107" type="number">
+            </mat-form-field>
+          </div>
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Teléfono</mat-label>
+              <input matInput type="number" disabled value="074233432">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="mt-2 top-line-blue mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title style="font-size: 17px;">
+          Datos de venta
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Comprobante</mat-label>
+              <input matInput disabled value="Nota de venta">
+            </mat-form-field>
+          </div>
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Modalidad</mat-label>
+              <input matInput disabled value="Trimestral">
+            </mat-form-field>
+          </div>
+          <div fxFlex="33" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Forma de Pago</mat-label>
+              <input matInput disabled value="Pago adelantado">
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+          <div fxFlex="50" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Fecha de inicio de servicio</mat-label>
+              <input [(ngModel)]="form.fechaInicio" matInput required type="date">
+            </mat-form-field>
+          </div>
+          <div fxFlex="50" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Emisión preventa</mat-label>
+              <input matInput required type="number">
+            </mat-form-field>
+          </div>
+        </div> -->
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20">
+          <div fxFlex="20" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Departamento</mat-label>
+              <input matInput disabled value="Lambayeque">
+            </mat-form-field>
+          </div>
+          <div fxFlex="20" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Provincia</mat-label>
+              <input matInput disabled value="Chiclayo">
+            </mat-form-field>
+          </div>
+          <div fxFlex="20" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Distrito</mat-label>
+              <input matInput disabled value="Chiclayo">
+            </mat-form-field>
+          </div>
+          <div fxFlex="40" fxLayout="column">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Dirección</mat-label>
+              <input matInput disabled value="Av. Santos Dumont 178">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="mt-2 mb-2 top-line-blue mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title style="font-size: 17px;">
+          Datos del Plan
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <div fxLayout="row">
+          <mat-table [dataSource]="dataSource" class="mt-1 mat-elevation-z8" fxFlex="100">
+            <!-- Position Column -->
+            <ng-container matColumnDef="plan">
+              <mat-header-cell *matHeaderCellDef> Plan </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.plan}} </mat-cell>
+            </ng-container>
+
+            <!-- monto Column -->
+            <ng-container matColumnDef="monto">
+              <mat-header-cell *matHeaderCellDef> Monto </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.monto}} </mat-cell>
+            </ng-container>
+
+            <!-- fechaV Column -->
+            <ng-container matColumnDef="fechaV">
+              <mat-header-cell *matHeaderCellDef> Fecha Venc. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.fechaV}} </mat-cell>
+            </ng-container>
+
+            <!-- fechaC Column -->
+            <ng-container matColumnDef="fechaC">
+              <mat-header-cell *matHeaderCellDef> Fecha Caduc. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.fechaC}} </mat-cell>
+            </ng-container>
+
+            <!-- options Column -->
+            <ng-container matColumnDef="opcion">
+              <mat-header-cell *matHeaderCellDef fxFlexAlign="center" fxLayoutAlign="center center"> Opciones
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element" fxFlexAlign="center" fxLayoutAlign="center center">
+                <button mat-stroked-button class="" disabled>Caducar</button>
+              </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+  <div class="animate__animated animate__fast animate__backInRight" *ngIf="isContratoVisible">
+    <mat-card class="mt-2 mb-2 top-line-blue mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title style="font-size: 17px;">
+          Contrato
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+        <img src="./assets/contrato.jpeg" />
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center" class="mt-1">
+  <button mat-raised-button (click)="mostrarContrato()"
+    class="color-electric">{{ (isContratoVisible) ? 'Mostrar Formulario' : 'Mostrar Contrato' }}</button>
+  <button mat-raised-button [mat-dialog-close]="true" color="warn">Cerrar</button>
+</mat-dialog-actions>
